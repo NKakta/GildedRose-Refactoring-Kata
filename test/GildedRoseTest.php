@@ -120,4 +120,28 @@ class GildedRoseTest extends \PHPUnit\Framework\TestCase
         $gildedRose->updateQuality();
         static::assertEquals(0, $item->quality);
     }
+
+    public function testConjuredItemQualityDecreaseWhenSellInPositive()
+    {
+        $item = new Item("Conjured", 2, 5);
+        $gildedRose = new GildedRose([$item]);
+        $gildedRose->updateQuality();
+        static::assertEquals(3, $item->quality);
+    }
+
+    public function testConjuredItemDecreasesQualityByFourWhenSellInZeroOrLess()
+    {
+        $item = new Item("Conjured", 0, 10);
+        $gildedRose = new GildedRose([$item]);
+        $gildedRose->updateQuality();
+        static::assertEquals(6, $item->quality);
+    }
+
+    public function testConjuredItemCantHaveNegativeQuality()
+    {
+        $item = new Item("Conjured", 0, 0);
+        $gildedRose = new GildedRose([$item]);
+        $gildedRose->updateQuality();
+        static::assertEquals(0, $item->quality);
+    }
 }

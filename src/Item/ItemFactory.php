@@ -10,7 +10,8 @@ class ItemFactory
     const ITEM_MAP = [
         ItemNames::AGED_BRIE => AgedBrie::class,
         ItemNames::SULFURAS => Sulfuras::class,
-        ItemNames::BACKSTAGE_PASS => BackstagePass::class
+        ItemNames::BACKSTAGE_PASS => BackstagePass::class,
+        ItemNames::CONJURED => ConjuredItem::class,
     ];
 
     /**

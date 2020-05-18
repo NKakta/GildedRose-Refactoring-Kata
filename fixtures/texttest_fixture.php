@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\GildedRose;
-use App\Item;
+use App\Item\Item;
 
 echo "OMGHAI!\n";
 
@@ -17,7 +18,7 @@ $items = array(
     new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49),
     new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49),
     // this conjured item does not work properly yet
-    new Item('Conjured Mana Cake', 3, 6)
+    new Item('Conjured', 3, 6)
 );
 
 $app = new GildedRose($items);
