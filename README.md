@@ -1,53 +1,51 @@
-# Gilded Rose Refactoring Kata
+Requirements
+------------
 
-This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
+**PHP 7:**
 
-I translated the original C# into a few other languages, (with a little help from my friends!), and slightly changed the starting position. This means I've actually done a small amount of refactoring already compared with the original form of the kata, and made it easier to get going with writing tests by giving you one failing unit test to start with. I also added test fixtures for Text-Based approval testing with TextTest (see [the TextTests](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/texttests))
+This is usually bundled with your operating system, or fetchable using a package manager like `apt` or `homebrew`.
 
-As Bobby Johnson points out in his article ["Why Most Solutions to Gilded Rose Miss The Bigger Picture"](http://iamnotmyself.com/2012/12/07/why-most-solutions-to-gilded-rose-miss-the-bigger-picture), it'll actually give you
-better practice at handling a legacy code situation if you do this Kata in the original C#. However, I think this kata
-is also really useful for practicing writing good tests using different frameworks and approaches, and the small changes I've made help with that. I think it's also interesting to compare what the refactored code and tests look like in different programming languages.
+Windows users can find the latest version here: https://windows.php.net/download#php-7.3
 
-I wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/) about how you could use this kata in a [coding dojo](https://leanpub.com/codingdojohandbook).
+If you want to compile from source code, that can be found here: https://www.php.net/downloads.php
 
-## How to use this Kata
+**Composer:**
 
-The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/GildedRoseRequirements.txt) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
+Composer is PHP's main package and dependency management tool.
 
-You could write some unit tests yourself, using the requirements to identify suitable test cases. I've provided a failing unit test in a popular test framework as a starting point for most languages.
+It can be downloaded here: https://getcomposer.org/download/
 
-Alternatively, use the "Text-Based" tests provided in this repository. (Read more about that in the next section)
+Getting Started
+---------------
 
-Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design. 
+To begin the kata, install the dependencies and run `phpunit`:
 
-## Text-Based Approval Testing
+```
+cd php7
+composer install
+vendor/bin/phpunit
+```
 
-This code comes with comprehensive tests that use this approach. For information about how to run them, see the [texttests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/texttests)
+If the "install" command does not work, try running `composer update` instead.
+This will tell composer that it has permission to look for a newer version of
+its dependencies.
 
-## Get going quickly using Cyber-Dojo
+If things are still not cooperating, you can try this extreme approach:
 
-I've also set this kata up on [cyber-dojo](https://cyber-dojo.org) for several languages, so you can get going really quickly:
+```
+composer remove phpunit/phpunit
+composer require phpunit/phpunit
+```
 
-To create an *individual* exercise:
-- [C#, NUnit](https://cyber-dojo.org/forker/fork_individual/Fz4xFX?index=3)
-- [C++ (g++), GoogleTest](https://cyber-dojo.org/forker/fork_individual/qPPrZy?index=7)
-- [Java, Cucumber](https://cyber-dojo.org/forker/fork_individual/SvUf30?index=2) - for this one I've also written some step definitions for you
-- [Java, JUnit](https://cyber-dojo.org/forker/fork_individual/aJJEN4?index=2)
-- [Python, unittest](https://cyber-dojo.org/forker/fork_individual/NFgFys?index=2)
-- [Ruby, RSpec](https://cyber-dojo.org/forker/fork_individual/D3xbUV?index=3)
-- [Ruby, testunit](https://cyber-dojo.org/forker/fork_individual/zlElgj?index=9)
+To exercise the code outside of phpunit, for example to visually confirm that it is working,
+use the `texttest_fixture` script:
 
-To create a *group* exercise:
-- [C#, NUnit](https://cyber-dojo.org/forker/fork_group/Fz4xFX?index=3)
-- [C++ (g++), GoogleTest](https://cyber-dojo.org/forker/fork_group/qPPrZy?index=7)
-- [Java, Cucumber](https://cyber-dojo.org/forker/fork_group/SvUf30?index=2) - for this one I've also written some step definitions for you
-- [Java, JUnit](https://cyber-dojo.org/forker/fork_group/aJJEN4?index=2)
-- [Python, unittest](https://cyber-dojo.org/forker/fork_group/NFgFys?index=2)
-- [Ruby, RSpec](https://cyber-dojo.org/forker/fork_group/D3xbUV?index=3)
-- [Ruby, testunit](https://cyber-dojo.org/forker/fork_group/zlElgj?index=9)
+```
+php fixtures/texttest_fixture.php
+```
 
-## Better Code Hub
+Tips
+----
 
-I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
-
-[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
+PHPUnit has a very thorough reference manual. It would be particularly useful to explore the
+[Data Providers](https://phpunit.readthedocs.io/en/8.1/writing-tests-for-phpunit.html#data-providers) section.
