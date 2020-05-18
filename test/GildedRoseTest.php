@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Item\Item;
+
 class GildedRoseTest extends \PHPUnit\Framework\TestCase
 {
     public function testFoo()
